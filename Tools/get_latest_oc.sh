@@ -1,4 +1,8 @@
+#!/bin/bash
 
+# Get latest OC for my Hackintosh
+
+# clean up folder
 rm -rf EFI
 mkdir EFI
 
