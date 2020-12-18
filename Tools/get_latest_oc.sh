@@ -18,8 +18,9 @@ download_oc() {
     latest_version=$(get_latest_release $1)
     wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
     unzip $2-$latest_version-RELEASE.zip "X64/EFI/*" -d ./
+    unzip $2-$latest_version-RELEASE.zip "Docs/*" -d ./
     mv X64/EFI ./
-    rm -rf X64
+    mv Docs/SampleCustom.plist EFI/OC/
 }
 
 download_oc "acidanthera/OpenCorePkg" OpenCore
