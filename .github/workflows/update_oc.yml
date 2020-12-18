@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Get Latest OC
         id: getoc
-        run: 
+        run: |
           echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
           cd $GITHUB_WORKSPACE/Tools/
           chmod +x get_latest_kexts.sh
