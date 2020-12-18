@@ -21,6 +21,7 @@ download_oc() {
     unzip $2-$latest_version-RELEASE.zip "Docs/*" -d ./
     mv X64/EFI ./
     mv Docs/SampleCustom.plist EFI/OC/
+    echo "OpenCore: $latest_version" >> version_info.txt
 }
 
 download_oc "acidanthera/OpenCorePkg" OpenCore
@@ -50,3 +51,5 @@ rm -rf EFI/OC/Drivers/XhciDxe.efi
 
 # rm Resources
 rm -rf EFI/OC/Resources
+
+cp version_info.txt EFI/OC/

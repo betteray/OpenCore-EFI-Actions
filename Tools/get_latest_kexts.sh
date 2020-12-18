@@ -16,6 +16,7 @@ download_kext() {
     latest_version=$(get_latest_release $1)
     wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
     unzip $2-$latest_version-RELEASE.zip "$2.kext/*" -d Kexts/
+    echo "$2: $latest_version" >> version_info.txt
 }
 
 download_virtualsmc() {
