@@ -36,6 +36,7 @@ jobs:
           sh get_latest_oc.sh
           cd EFI
           echo "EFI=$PWD" >> $GITHUB_ENV
+          echo "::set-output name=status::success"
            
 
       - name: Check space usage
