@@ -7,6 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
+    paths-ignore: 
+      - 'EFI/OC/config.plist'
   pull_request:
     branches: [ master ]
 
@@ -39,17 +41,12 @@ jobs:
           cd EFI
           echo "EFI=$PWD" >> $GITHUB_ENV
           echo "::set-output name=status::success"
-           
-
-      - name: Check space usage
-        if: (!cancelled())
-        run: df -h
       
       - name: Upload EFI directory
         uses: actions/upload-artifact@main
         if: steps.getoc.outputs.status == 'success' && !cancelled()
         with:
-          name: EFI${{ env.FILE_DATE }}
+          name: EFI_${{ env.FILE_DATE }}
           path: ${{ env.EFI }}
         
       
