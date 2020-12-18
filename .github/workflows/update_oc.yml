@@ -47,6 +47,6 @@ jobs:
         if: steps.getoc.outputs.status == 'success' && !cancelled()
         with:
           name: EFI${{ env.EFI }}
-          path: ${{ env.EFI }
+          path: ${{ env.EFI }}
         
       
