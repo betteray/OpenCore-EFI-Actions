@@ -29,6 +29,9 @@ download_oc "acidanthera/OpenCorePkg" OpenCore
 mv Kexts EFI/OC/
 cp -r ../EFI/OC/Kexts/USBMap.kext EFI/OC/Kexts/
 
+# Original config.plist
+cp ../EFI/OC/config.plist EFI/OC/
+
 # ACPI
 cp -r ../EFI/OC/ACPI EFI/OC/
 
