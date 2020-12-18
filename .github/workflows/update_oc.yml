@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@main
         if: steps.getoc.outputs.status == 'success' && !cancelled()
         with:
-          name: EFI_${{ env.FILE_DATE }}
+          name: EFI${{ env.FILE_DATE }}
           path: ${{ env.EFI }}
         
       
