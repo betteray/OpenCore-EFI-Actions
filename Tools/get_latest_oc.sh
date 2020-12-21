@@ -22,6 +22,7 @@ download_oc() {
     mv X64/EFI ./
     mv Docs/SampleCustom.plist EFI/OC/
     echo "OpenCore: $latest_version" >> version_info.txt
+    echo "OC_VER=$latest_version" >> $GITHUB_ENV
 }
 
 download_oc "acidanthera/OpenCorePkg" OpenCore
