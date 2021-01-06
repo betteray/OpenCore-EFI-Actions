@@ -39,16 +39,7 @@ cp -r ../EFI/OC/ACPI EFI/OC/
 
 # Drivers
 cp -r ../EFI/OC/Drivers/HfsPlus.efi EFI/OC/Drivers/HfsPlus.efi
-rm -rf EFI/OC/Drivers/AudioDxe.efi
-rm -rf EFI/OC/Drivers/CrScreenshotDxe.efi
-rm -rf EFI/OC/Drivers/HiiDatabase.efi
-rm -rf EFI/OC/Drivers/NvmExpressDxe.efi
-rm -rf EFI/OC/Drivers/OpenCanopy.efi
-rm -rf EFI/OC/Drivers/OpenUsbKbDxe.efi
-rm -rf EFI/OC/Drivers/Ps2KeyboardDxe.efi
-rm -rf EFI/OC/Drivers/Ps2MouseDxe.efi
-rm -rf EFI/OC/Drivers/UsbMouseDxe.efi
-rm -rf EFI/OC/Drivers/XhciDxe.efi
+rm -rf EFI/OC/Drivers/AudioDxe.efi EFI/OC/Drivers/CrScreenshotDxe.efi EFI/OC/Drivers/HiiDatabase.efi EFI/OC/Drivers/NvmExpressDxe.efi EFI/OC/Drivers/OpenCanopy.efi EFI/OC/Drivers/OpenUsbKbDxe.efi EFI/OC/Drivers/Ps2KeyboardDxe.efi EFI/OC/Drivers/Ps2MouseDxe.efi EFI/OC/Drivers/UsbMouseDxe.efi EFI/OC/Drivers/XhciDxe.efi EFI/OC/Drivers/VBoxHfs.efi
 
 # rm Resources
 rm -rf EFI/OC/Resources
