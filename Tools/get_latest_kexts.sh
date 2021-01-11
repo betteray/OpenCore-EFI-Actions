@@ -7,7 +7,7 @@ rm -rf Kexts
 mkdir Kexts
 
 get_latest_release() {
-    curl --silent "https://github.com/$1/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
+    curl --silent "https://github.com/$1/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
 }
 
 download_kext() {

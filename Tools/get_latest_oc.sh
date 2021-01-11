@@ -10,7 +10,7 @@ mkdir -p EFI/OC/Others
 sh get_latest_kexts.sh
 
 get_latest_release() {
-  curl --silent "https://github.com/$1/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
+    curl --silent "https://github.com/$1/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
 }
 
 download_oc() {
