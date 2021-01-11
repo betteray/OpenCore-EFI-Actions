@@ -20,8 +20,13 @@ download_oc() {
     unzip $2-$latest_version-RELEASE.zip "X64/EFI/*" -d ./
     unzip $2-$latest_version-RELEASE.zip "Docs/*" -d ./
     unzip $2-$latest_version-RELEASE.zip "Utilities/*" -d ./
+
     mv X64/EFI ./
+
+    mv Docs/Configuration.pdf EFI/OC/
     mv Docs/SampleCustom.plist EFI/OC/
+    mv Docs/Changelog.md EFI/OC/
+
     echo "OpenCore: $latest_version" >> version_info.txt
     echo "OC_VER=$latest_version" >> $GITHUB_ENV
 }
@@ -35,6 +40,7 @@ cp -r ../EFI/OC/Kexts/USBMap.kext EFI/OC/Kexts/
 # Original config.plist
 cp ../EFI/OC/config.plist EFI/OC/
 ./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/ocvalidate_result.txt
+cp ./Utilities/ocvalidate/ocvalidate EFI/OC/
 
 # ACPI
 cp -r ../EFI/OC/ACPI EFI/OC/
