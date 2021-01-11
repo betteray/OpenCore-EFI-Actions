@@ -16,7 +16,7 @@ get_latest_release() {
 }
 
 copy_docs() {
-    unzip OC_ZIP "Docs/*" -d ./
+    unzip $OC_ZIP "Docs/*" -d ./
     mkdir -p EFI/OC/Others
     mv Docs/Configuration.pdf EFI/OC/Others/
     mv Docs/SampleCustom.plist EFI/OC/Others/
@@ -26,8 +26,8 @@ copy_docs() {
 download_oc() {
     latest_version=$(get_latest_release $1)
     wget -c "https://github.com/acidanthera/OpenCorePkg/releases/download/$OC_VERSION/OpenCore-$OC_VERSION-RELEASE.zip"
-    unzip OC_ZIP "X64/EFI/*" -d ./    
-    unzip OC_ZIP "Utilities/*" -d ./
+    unzip $OC_ZIP "X64/EFI/*" -d ./    
+    unzip $OC_ZIP "Utilities/*" -d ./
 
     mv X64/EFI ./
 
