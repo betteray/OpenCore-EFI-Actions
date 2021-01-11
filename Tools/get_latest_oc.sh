@@ -8,9 +8,6 @@ mkdir EFI
 
 sh get_latest_kexts.sh
 
-OC_VERSION=$(get_latest_release acidanthera/OpenCorePkg)
-OC_ZIP=OpenCore-$OC_VERSION-RELEASE.zip
-
 get_latest_release() {
     curl --silent "https://github.com/$1/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
 }
@@ -33,6 +30,9 @@ download_oc() {
 
     echo "OC_VER=$OC_VERSION" >> $GITHUB_ENV
 }
+
+OC_VERSION=$(get_latest_release acidanthera/OpenCorePkg)
+OC_ZIP=OpenCore-$OC_VERSION-RELEASE.zip
 
 download_oc
 
