@@ -5,33 +5,35 @@
 # clean up folder
 rm -rf EFI
 mkdir EFI
-mkdir -p EFI/OC/Others
 
 sh get_latest_kexts.sh
+
+OC_VERSION=$(get_latest_release acidanthera/OpenCorePkg)
+OC_ZIP=OpenCore-$OC_VERSION-RELEASE.zip
 
 get_latest_release() {
     curl --silent "https://github.com/$1/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
 }
 
-download_oc() {
-    latest_version=$(get_latest_release $1)
-    wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
-    unzip $2-$latest_version-RELEASE.zip "X64/EFI/*" -d ./
-    unzip $2-$latest_version-RELEASE.zip "Docs/*" -d ./
-    unzip $2-$latest_version-RELEASE.zip "Utilities/*" -d ./
-
-    mv X64/EFI ./
-
+copy_docs() {
+    unzip OC_ZIP "Docs/*" -d ./
     mv Docs/Configuration.pdf EFI/OC/Others/
     mv Docs/SampleCustom.plist EFI/OC/Others/
     mv Docs/Changelog.md EFI/OC/Others/
-
-    echo "OpenCore: $latest_version" >> EFI/OC/Others/version_info.txt
-    echo "OC_VER=$latest_version" >> $GITHUB_ENV
 }
 
+download_oc() {
+    latest_version=$(get_latest_release $1)
+    wget -c "https://github.com/acidanthera/OpenCorePkg/releases/download/$OC_VERSION/OpenCore-$OC_VERSION-RELEASE.zip"
+    unzip OC_ZIP "X64/EFI/*" -d ./    
+    unzip OC_ZIP "Utilities/*" -d ./
 
-download_oc "acidanthera/OpenCorePkg" OpenCore
+    mv X64/EFI ./
+
+    echo "OC_VER=$OC_VERSION" >> $GITHUB_ENV
+}
+
+download_oc
 
 # Kexts
 mv Kexts EFI/OC/
@@ -56,3 +58,4 @@ rm -rf EFI/OC/Tools
 rm -rf EFI/OC/Resources
 cp -r ../EFI/OC/Resources EFI/OC/
 
+copy_docs
