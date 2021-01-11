@@ -19,6 +19,7 @@ download_oc() {
     wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
     unzip $2-$latest_version-RELEASE.zip "X64/EFI/*" -d ./
     unzip $2-$latest_version-RELEASE.zip "Docs/*" -d ./
+    unzip $2-$latest_version-RELEASE.zip "Utilities/*" -d ./
     mv X64/EFI ./
     mv Docs/SampleCustom.plist EFI/OC/
     echo "OpenCore: $latest_version" >> version_info.txt
@@ -33,6 +34,7 @@ cp -r ../EFI/OC/Kexts/USBMap.kext EFI/OC/Kexts/
 
 # Original config.plist
 cp ../EFI/OC/config.plist EFI/OC/
+./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/ocvalidate_result.txt
 
 # ACPI
 cp -r ../EFI/OC/ACPI EFI/OC/
