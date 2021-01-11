@@ -5,6 +5,7 @@
 # clean up folder
 rm -rf EFI
 mkdir EFI
+mkdir -p EFI/OC/Others
 
 sh get_latest_kexts.sh
 
@@ -21,13 +22,14 @@ download_oc() {
 
     mv X64/EFI ./
 
-    mv Docs/Configuration.pdf EFI/OC/
-    mv Docs/SampleCustom.plist EFI/OC/
-    mv Docs/Changelog.md EFI/OC/
+    mv Docs/Configuration.pdf EFI/OC/Others/
+    mv Docs/SampleCustom.plist EFI/OC/Others/
+    mv Docs/Changelog.md EFI/OC/Others/
 
-    echo "OpenCore: $latest_version" >> version_info.txt
+    echo "OpenCore: $latest_version" >> EFI/OC/Others/version_info.txt
     echo "OC_VER=$latest_version" >> $GITHUB_ENV
 }
+
 
 download_oc "acidanthera/OpenCorePkg" OpenCore
 
@@ -37,8 +39,8 @@ cp -r ../EFI/OC/Kexts/USBMap.kext EFI/OC/Kexts/
 
 # Original config.plist
 cp ../EFI/OC/config.plist EFI/OC/
-./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/ocvalidate_result.txt
-cp ./Utilities/ocvalidate/ocvalidate EFI/OC/
+./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/Others/ocvalidate_result.txt
+cp ./Utilities/ocvalidate/ocvalidate EFI/OC/Others/
 
 # ACPI
 cp -r ../EFI/OC/ACPI EFI/OC/

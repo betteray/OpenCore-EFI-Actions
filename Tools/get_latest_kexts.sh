@@ -14,14 +14,14 @@ download_kext() {
     latest_version=$(get_latest_release $1)
     wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
     unzip $2-$latest_version-RELEASE.zip "$2.kext/*" -d Kexts/
-    echo "$2: $latest_version" >> version_info.txt
+    echo "$2: $latest_version" >> EFI/OC/Others/version_info.txt
 }
 
 download_virtualsmc() {
     latest_version=$(get_latest_release $1)
     wget -c "https://github.com/$1/releases/download/$latest_version/$2-$latest_version-RELEASE.zip"
     unzip $2-$latest_version-RELEASE.zip "Kexts/$3.kext/*" -d ./
-    echo "$3: $latest_version" >> version_info.txt
+    echo "$3: $latest_version" >> EFI/OC/Others/version_info.txt
 }
 
 download_kext "acidanthera/Lilu" Lilu
