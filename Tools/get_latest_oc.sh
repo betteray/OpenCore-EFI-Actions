@@ -17,6 +17,7 @@ get_latest_release() {
 
 copy_docs() {
     unzip OC_ZIP "Docs/*" -d ./
+    mkdir -p EFI/OC/Others
     mv Docs/Configuration.pdf EFI/OC/Others/
     mv Docs/SampleCustom.plist EFI/OC/Others/
     mv Docs/Changelog.md EFI/OC/Others/
