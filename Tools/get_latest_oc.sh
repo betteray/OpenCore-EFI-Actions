@@ -56,4 +56,3 @@ rm -rf EFI/OC/Tools
 rm -rf EFI/OC/Resources
 cp -r ../EFI/OC/Resources EFI/OC/
 
-cp version_info.txt EFI/OC/
