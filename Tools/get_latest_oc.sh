@@ -18,6 +18,9 @@ copy_docs() {
     mv Docs/Configuration.pdf EFI/OC/Others/
     mv Docs/SampleCustom.plist EFI/OC/Others/
     mv Docs/Changelog.md EFI/OC/Others/
+
+    cp ./Utilities/ocvalidate/ocvalidate EFI/OC/Others/
+    ./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/Others/ocvalidate_result.txt
 }
 
 download_oc() {
@@ -42,8 +45,6 @@ cp -r ../EFI/OC/Kexts/USBMap.kext EFI/OC/Kexts/
 
 # Original config.plist
 cp ../EFI/OC/config.plist EFI/OC/
-./Utilities/ocvalidate/ocvalidate EFI/OC/config.plist >> EFI/OC/Others/ocvalidate_result.txt
-cp ./Utilities/ocvalidate/ocvalidate EFI/OC/Others/
 
 # ACPI
 cp -r ../EFI/OC/ACPI EFI/OC/
