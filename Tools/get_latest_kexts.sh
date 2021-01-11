@@ -32,5 +32,3 @@ download_kext "acidanthera/WhateverGreen" WhateverGreen
 download_kext "acidanthera/IntelMausi" IntelMausi
 
 download_virtualsmc "acidanthera/VirtualSMC" VirtualSMC VirtualSMC
-download_virtualsmc "acidanthera/VirtualSMC" VirtualSMC SMCProcessor
-download_virtualsmc "acidanthera/VirtualSMC" VirtualSMC SMCSuperIO
