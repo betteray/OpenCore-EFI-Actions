@@ -7,9 +7,7 @@ rm -rf Kexts
 mkdir Kexts
 
 get_latest_release() {
-  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    curl --silent "https://github.com/$1/latest" | sed 's#.*tag/\(.*\)\".*#\1#'
 }
 
 download_kext() {
