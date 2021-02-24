@@ -8,7 +8,7 @@
 
 ### 使用
 
-1. 在 [Actions](https://github.com/betteray/OpenCore-EFI-Actions)下载最新编译版本。
+1. 在 [Actions](https://github.com/betteray/OpenCore-EFI-Actions/actions)下载最新编译版本。
 2. 下载后解压检查 EFI/OC/Others 文件夹内 ocvalidate_result.txt 文件，看 config.plist 是否有缺失或多余字段等。
 3. 没有报错，可以删除Others文件夹，有报错可以下载历史打包版本。
 4. 自己做[Usb map](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).
