@@ -37,7 +37,7 @@ jobs:
           cd $GITHUB_WORKSPACE/Tools/
           chmod +x get_latest_kexts.sh
           chmod +x get_latest_oc.sh
-          sh get_latest_oc.sh
+          sh get_latest_oc.sh || true
           cd EFI
           echo "EFI=$PWD" >> $GITHUB_ENV
           echo "::set-output name=status::success"
