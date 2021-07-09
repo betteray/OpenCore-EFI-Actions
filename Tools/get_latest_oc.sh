@@ -58,6 +58,6 @@ rm -rf EFI/OC/Tools
 
 # rm Resources
 rm -rf EFI/OC/Resources
-cp -r ../EFI/OC/Resources EFI/OC/
+cp -r ../OcBinaryData/Resources EFI/OC/
 
 copy_docs
