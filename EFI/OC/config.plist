@@ -534,6 +534,8 @@
 				<true/>
 				<key>Arguments</key>
 				<string></string>
+				<key>Comment</key>
+				<string></string>
 			</dict>
 			<dict>
 				<key>Path</key>
@@ -542,6 +544,8 @@
 				<true/>
 				<key>Arguments</key>
 				<string></string>
+				<key>Comment</key>
+				<string>HFS+ Driver</string>
 			</dict>
 			<dict>
 				<key>Path</key>
@@ -549,6 +553,8 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
 				<string></string>
 			</dict>
 		</array>
